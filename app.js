@@ -28,7 +28,7 @@ app.use(session({
 
   app.get('/auth/todoist', (req, res) => {
     const clientId = 'dcdf42a57c784ae1992d2bad86126a05';
-    const redirectUri = 'http://16.171.34.72:3000/auth/todoist/todos ';
+    const redirectUri = 'https://16.171.34.72:3000/auth/todoist/todos ';
     const authorizationUrl = `https://todoist.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=data:read_write&state=YOUR_STATE`;
     res.redirect(authorizationUrl);
 });
@@ -41,7 +41,7 @@ app.get('/auth/todoist/todos', async (req, res) => {
     const clientId = 'dcdf42a57c784ae1992d2bad86126a05';
     const clientSecret = process.env.CLIENT_SECRET;
     const code = req.query.code;
-    const redirectUri = 'http://16.171.34.72:3000/auth/todoist/todos';
+    const redirectUri = 'https://16.171.34.72:3000/auth/todoist/todos';
 
     try {
         const tokenResponse = await axios.post('https://todoist.com/oauth/access_token', {
